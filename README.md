@@ -13,18 +13,9 @@ A robust Tampermonkey userscript to scrape public and school holidays from [publ
 
 ## Installation
 
-1.  Install the **Tampermonkey** extension for your browser (Chrome, Edge, Firefox, etc.).
-### Prerequisite: Enable File Access
-**You must enable file access in your browser extension settings to use this script.**
+**[Click here to Install Script](https://aturcara.github.io/Holiday-Scraper-Malaysia/)**
 
-1.  Go to your browser's **Extensions** management page (`chrome://extensions` or `edge://extensions`).
-2.  Find **Tampermonkey** and click **Details**.
-3.  Toggle **ON** the setting: **"Allow access to file URLs"**.
-
-### Loading the Script
-1.  Create a new script in Tampermonkey.
-2.  Copy the contents of `holidayscraper.js` into it.
-3.  Save the script.
+*Note: You must have Tampermonkey installed and "Allow access to file URLs" enabled if you are developing locally.*
 
 ## Usage
 
