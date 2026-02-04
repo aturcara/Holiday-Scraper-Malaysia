@@ -1,6 +1,6 @@
 # Holiday Scraper Malaysia
 
-![Holiday Scraper Preview](preview.png)
+![Holiday Scraper Preview](https://aturcara.github.io/Holiday-Scraper-Malaysia/preview.png)
 
 A robust Tampermonkey userscript to scrape public and school holidays from [publicholidays.com.my](https://publicholidays.com.my/) and export them as CSV files.
 
