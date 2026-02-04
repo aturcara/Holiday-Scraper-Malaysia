@@ -6,6 +6,7 @@
 // @match        https://publicholidays.com.my/*
 // @grant        GM_download
 // @author       aturcara
+// @run-at       document-idle
 // ==/UserScript==
 
 (function () {
@@ -48,16 +49,20 @@
      * TOP BAR UI
      ********************/
     const bar = document.createElement('div');
+    bar.id = 'hs-sticky-bar';
     bar.style = `
-        position: sticky;
+        position: fixed;
         top: 0;
-        z-index: 100000;
+        left: 0;
+        width: 100%;
+        z-index: 2147483647;
         background: #0f172a;
         color: #e5e7eb;
         display: flex;
         align-items: center;
         gap: 10px;
         padding: 8px 14px;
+        box-sizing: border-box;
         font-family: system-ui, -apple-system, sans-serif;
         font-size: 13px;
         box-shadow: 0 2px 10px rgba(0,0,0,.25);
@@ -72,8 +77,22 @@
         </span>
     `;
 
-    document.body.prepend(bar);
-    document.body.style.paddingTop = bar.offsetHeight + 'px';
+    const mount = () => {
+        if (!document.body) return;
+        if (!document.getElementById('hs-sticky-bar')) {
+            document.body.prepend(bar);
+            document.body.style.paddingTop = '50px'; // hardcode safe padding to avoid offsetHeight 0 issues
+        }
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', mount);
+    } else {
+        mount();
+    }
+
+    // Check every second to ensure it wasn't removed
+    setInterval(mount, 1000);
 
     bar.querySelectorAll('button').forEach(btn => {
         btn.style = `
